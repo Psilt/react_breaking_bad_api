@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect} from 'react';
+import Frase from './Components/Frase'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+const [frase,setFrase]= useState({})
+
+
+const consultar_api= async ()=>{
+  const api = await fetch('https://api.breakingbadquotes.xyz/v1/quotes');
+  const resultado= await api.json();
+  setFrase(resultado[0])
+}
+
+useEffect(()=>{
+consultar_api()
+
+},[])
+
+  return (  
+      <div className="contenedor">
+        <Frase frase={frase}></Frase>
+        <button
+        className='button'
+        onClick={consultar_api}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Obtener frase 
+        </button>
+      
+      </div>
+    
   );
 }
 

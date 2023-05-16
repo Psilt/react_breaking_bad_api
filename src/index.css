@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+* {
+  margin:0 ;
+}
+html {
+  height: 100%;
+}
+.contenedor{
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  flex-direction: column;
+}
+.button{
+  background: -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
+  background-size: 300px;
+  font-family:  Arial, Helvetica, sans-serif;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  border: 2px solid black;
+  transition: background-size .8s ease;
+ 
+}
+.button :hover {
+  cursor:pointer;
+  background-size: 400px;
+}
+.frase_div{
+  padding: 3rem;
+  border-radius: .5rem;
+  background-color: #fff;
+  max-width:800px;
+
+}
+.frase_div h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: relative;
+    padding-left: 4rem;
+}
+.frase_div h1::before{
+  content: open-quote;
+  font-size: 10rem;
+  color: black;
+  position: absolute;
+  left: -1rem;
+  top: -2rem;
+}
+.frase_div p{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  font-weight:bold;
+  text-align: right;
+  color: #666;
+  margin-top: 2rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+body {
+  background-image: url(logo.svg), -webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
+  min-height: 100%;
+  background-position: center 80px, center center;
+  background-repeat:no-repeat;
+  background-size: 300px, 100% 100%;
+  display: flex;
+  align-items: flex-end;
+}
+@media (min-width:768px) {
+  body {
+    align-items: center;
+    background-size: 400px, 100% 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .frase_div {
+    margin-top: 15rem;
+  }
+}
+
+#root {
+  width: 100%;
 }
